@@ -64,6 +64,7 @@ jobs:
         run: |
           git lfs pull --include="*" --exclude=""
           make bench_integer_hpu
+          make bench_hlapi_hpu
           make bench_hlapi_erc20_hpu
 
       - name: Parse results
