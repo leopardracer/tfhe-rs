@@ -515,7 +515,7 @@ clippy_hpu_backend: install_rs_check_toolchain
 		-p tfhe-hpu-backend -- --no-deps -D warnings
 
 .PHONY: clippy_hpu_mockup # Run clippy lints on tfhe-hpu-mockup
-clippy_hpu: install_rs_check_toolchain
+clippy_hpu_mockup: install_rs_check_toolchain
 	RUSTFLAGS="$(RUSTFLAGS)" cargo "$(CARGO_RS_CHECK_TOOLCHAIN)" clippy \
 		--all-targets \
 		-p tfhe-hpu-backend -- --no-deps -D warnings
@@ -1110,7 +1110,7 @@ check_md_links: install_mlc
 
 .PHONY: check_parameter_export_ok # Checks exported "current" shortint parameter module is correct
 check_parameter_export_ok:
-	python3 ./scripts/check_current_param_export.py
+	python3.11 ./scripts/check_current_param_export.py
 
 .PHONY: check_compile_tests # Build tests in debug without running them
 check_compile_tests: install_rs_build_toolchain
